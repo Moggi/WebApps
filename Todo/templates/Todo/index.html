@@ -10,11 +10,14 @@
         <header>
             <h1>ToDo</h1>
             <hr>
+            <a href="/todo/add">Add a Todo</a>
         </header>
         <div class="container">
         <ul>
             {% for todoItem in todoList %}
-            <li><a href="/todo/details/{{todoItem.id}}">{{todoItem.title}}</a>: {{todoItem.text}}</li>
+            <li>
+                <a href="/todo/details/{{todoItem.id}}">{{todoItem.title}}</a><span>: {{todoItem.text}}</span>
+            </li>
             {% endfor %}
         </ul>
         </div>

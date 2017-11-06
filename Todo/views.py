@@ -30,3 +30,12 @@ def add(request):
         return redirect('/todo')
     else:
         return render(request, 'Todo/add.html')
+
+def delete(request):
+    if(request.method == 'POST'):
+        todoItemId = request.POST['todoItemId']
+
+        todoItem = Todo.objects.get(id=todoItemId)
+        todoItem.delete()
+
+    return redirect('/todo')

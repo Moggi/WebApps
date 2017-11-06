@@ -18,7 +18,13 @@
             <h1>{{todoItem.title}}</h1>
             <p>{{todoItem.text}}</p>
             <br>
-            Created on {{todoItem.created_at}}
+            <span>Created on {{todoItem.created_at}}</span>
+            <br>
+            <form action="{% url 'delete' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="todoItemId" value="{{todoItem.id}}"/>
+                <input type="submit" value="Delete"/>
+            </form>
         </div>
     </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
+        {% include 'base_header.html' %}
         {% load static %}
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
         <title>Todo List</title>
@@ -26,5 +26,9 @@
                 <input type="submit" value="Delete"/>
             </form>
         </div>
+
+        <footer>
+            {% include 'base_footer.html' %}
+        </footer>
     </body>
 </html>

@@ -4,10 +4,9 @@
         {% include 'base_header.html' %}
         {% load static %}
         <link rel="stylesheet" href="{% static 'css/todo_style.css' %}">
-        <title>Todo List</title>
     </head>
     <body>
-        <header>
+        <header class="container">
             <h1>ToDo</h1>
             <hr>
             <a href="{% url 'add' %}">Add a Todo</a>
@@ -22,8 +21,6 @@
         </ul>
         </div>
 
-        <footer>
-            {% include 'base_footer.html' %}
-        </footer>
+        {% include 'base_footer.html' %}
     </body>
 </html>

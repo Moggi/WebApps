@@ -3,7 +3,6 @@
     <head>
         {% include 'base_header.html' %}
         {% load static %}
-        <title>Todo List</title>
     </head>
     <body>
         <header>
@@ -30,8 +29,6 @@
         <br>
         <a href="{% url 'index' %}">Go Back</a>
 
-        <footer>
-            {% include 'base_footer.html' %}
-        </footer>
+        {% include 'base_footer.html' %}
     </body>
 </html>

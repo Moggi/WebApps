@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <span>Capital inicial: {{ capital_inicial }}</span>
+        <span>Taxa mensal: {{ taxa_mensal }}</span>
+        <span>Valores mensais:</span>
+        <table>
+            <thead>
+                <tr>
+                    <th>Anos</th>
+                    <th>Aportes Mensais</th>
+                    <th>Capital Investido</th>
+                    <th>Valor Anual</th>
+                    <th>Lucro Anual</th>
+                    <th>Lucro Anual IR 15%</th>
+                    <th>Lucro Anual IR 17,5%</th>
+                    <th>Lucro Anual IR 20%</th>
+                    <th>Lucro Anual IR 22,5%</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for valor in valores_mensais %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ valor.aportes_mensais|stringformat:".2f" }}</td>
+                    <td>{{ valor.capital_investido|stringformat:".2f" }}</td>
+                    <td>{{ valor.valor_anual|stringformat:".2f" }}</td>
+                    <td>{{ valor.lucro_anual|stringformat:".2f" }}</td>
+                    <td>{{ valor.lucro_anual_15|stringformat:".2f" }}</td>
+                    <td>{{ valor.lucro_anual_175|stringformat:".2f" }}</td>
+                    <td>{{ valor.lucro_anual_20|stringformat:".2f" }}</td>
+                    <td>{{ valor.lucro_anual_225|stringformat:".2f" }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+</html>

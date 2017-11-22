@@ -25,17 +25,20 @@ def mensal(request):
         aportes_mensais = float(request.POST['aportes_mensais'])
         taxa_mensal     = float(request.POST['taxa_mensal'])
         taxa_progressiva = float(request.POST['taxa_progressiva'])
+        capital_objetivo = float(request.POST['capital_objetivo'])
 
-        taxa_mensal     = (taxa_mensal/100) if taxa_mensal >= 0 else 1
+        # every year the 'aportes' will grow at leat 0.1%, else it will not
+        taxa_progressiva = (taxa_progressiva/100) if taxa_progressiva >= 0.1 else 0.0
+
+        # each month the 'aporte' will grow a fixed rate of at leat 0.1%
+        taxa_mensal     = (taxa_mensal/100) if taxa_mensal >= 0.1 else 1
 
         capital_investido = capital_inicial
-
-        valor_anual = capital_inicial
-
+        valor_anual     = capital_inicial
         valores_mensais = []
 
-        it = 100 # 100 anos
-        for it in range(1, 100 +1):
+        it = 150 # 150 anos
+        for it in range(1, 150 +1):
 
             valor_mensal = valor_anual
             for mes in range(1, 12 +1):
@@ -55,11 +58,10 @@ def mensal(request):
                 'lucro_anual_225': (valor_anual-capital_investido)*0.775,
             })
 
-            if (valor_anual-capital_investido)*(0.775)/1000000 >= 1:
+            if valor_anual >= capital_objetivo:
                 break
 
-            if taxa_progressiva > 0.0001:
-                aportes_mensais += aportes_mensais*taxa_progressiva
+            aportes_mensais += aportes_mensais*taxa_progressiva
 
         context = getContext({
             'capital_inicial': capital_inicial,

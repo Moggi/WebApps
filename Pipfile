@@ -3,9 +3,11 @@ url = "https://pypi.python.org/simple"
 verify_ssl = true
 
 [packages]
+dj-database-url = "*"
 django = "*"
 gunicorn = "*"
 django-heroku = "*"
+whitenoise = "*"
 
 [requires]
 python_version = "3.6"

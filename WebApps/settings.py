@@ -87,16 +87,7 @@ WSGI_APPLICATION = 'WebApps.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'webapps',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': '172.18.0.1',
-        'PORT': '33060'
-    }
-}
+DATABASES = {}
 
 # Update database configuration with $DATABASE_URL.
 import dj_database_url

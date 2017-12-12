@@ -55,8 +55,8 @@ MIDDLEWARE = [
 MIDDLEWARE_CLASSES = (
     # Simplified static file serving.
     # https://warehouse.python.org/project/whitenoise/
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-]
+    'whitenoise.middleware.WhiteNoiseMiddleware'
+)
 
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
@@ -87,21 +87,22 @@ WSGI_APPLICATION = 'WebApps.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'webapps',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': '172.18.0.1',
+        'PORT': '33060'
+    }
+}
+
 # Update database configuration with $DATABASE_URL.
 import dj_database_url
+
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'webapps',
-#         'USER': 'root',
-#         'PASSWORD': '',
-#         'HOST': '172.18.0.1',
-#         'PORT': '33060'
-#     }
-# }
 
 
 # Password validation

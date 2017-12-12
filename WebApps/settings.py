@@ -89,7 +89,7 @@ WSGI_APPLICATION = 'WebApps.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgres',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'webapps',
         'USER': 'root',
         'PASSWORD': '',

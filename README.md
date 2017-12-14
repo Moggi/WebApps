@@ -1,6 +1,11 @@
 # WebApps
 Apps made to learn the [Django's](https://github.com/django/django) and [Heroku's](https://www.heroku.com) way of creating WebApps
 
+## Apps
+- Todo (basic Todo without JS)
+- Aportes (basic financial contribution)
+- Home (presents the apps)
+
 ## About
 This was made with:
 - Docker
@@ -9,7 +14,8 @@ This was made with:
 - An Docker self-made **bridge network** to connect the containers
 
 ## Checkpoint
-From Django:
+### From Services
+Django:
 - [x] Request and Responses
 - [x] Models
 - [x] Views and Templates
@@ -20,12 +26,26 @@ From Django:
 - [ ] Testing
 - [x] Deployment
 
-From Docker:
+Docker:
 - [x] Manage Containers
 - [x] Manage Images
 - [x] Network
 
-From Heroku:
+Heroku:
 - [x] App in Production
 - [x] CLI (Git)
 - [x] Postgres
+
+### From Apps
+Home App
+- [ ] Apps carousel
+- [ ] Template for all apps
+
+Todo App
+- [x] Model
+- [ ] User auth
+- [ ] CRUD
+
+Aportes App
+- [ ] Monthly contribution (Months/Years)
+- [ ] Dream contribution

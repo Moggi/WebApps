@@ -15,6 +15,7 @@ From Django:
 - [x] Views and Templates
 - [x] Forms
 - [x] StaticFiles
+- [ ] Authentication
 - [x] Admin
 - [ ] Testing
 - [x] Deployment

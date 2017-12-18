@@ -16,6 +16,30 @@
         <div class="main">
 
             <div class="container">
+                <form class="aportes-form" action="mensal.html" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="capital_inicial">Capital inicial a ser investido: </label>
+                        <input class="form-control" type="number" name="capital_inicial" value="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="aportes_mensais">Aportes mensais: </label>
+                        <input class="form-control" type="number" name="aportes_mensais" value="100">
+                    </div>
+                    <div class="form-group">
+                        <label for="taxa_mensal">Porcentagem do rendimento mensal: </label>
+                        <input class="form-control" type="number" name="taxa_mensal" step="0.01" value="0.90">
+                    </div>
+                    <div class="form-group">
+                        <label for="taxa_progressiva">Porcentagem progressiva do capital (anual): </label>
+                        <input class="form-control" type="number" name="taxa_progressiva" value="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="capital_objetivo">Capital objetivo: </label>
+                        <input class="form-control" type="number" name="capital_objetivo" value="1000000">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Calcular</button>
+                </form>
 
             </div>
 

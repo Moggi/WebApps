@@ -47,5 +47,5 @@ Todo App
 - [ ] CRUD
 
 Aportes App
-- [ ] Monthly contribution (Months/Years)
+- [x] Monthly contribution (Years)
 - [ ] Dream contribution

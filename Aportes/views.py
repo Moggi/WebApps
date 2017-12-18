@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.template.context import Context, make_context
-from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.csrf import csrf_protect,requires_csrf_token
 from django.shortcuts import render, redirect
 
 from .apps import AportesConfig
@@ -8,6 +8,7 @@ from .apps import AportesConfig
 # ==============================================================================
 # URL methods
 # ==============================================================================
+@requires_csrf_token
 def index(request):
 
     context = getContext({
@@ -18,7 +19,7 @@ def index(request):
 # ==============================================================================
 # POST Only methods
 # ==============================================================================
-@csrf_exempt
+@csrf_protect
 def mensal(request):
     if(request.method == 'POST'):
         capital_inicial = float(request.POST['capital_inicial'])
@@ -65,7 +66,7 @@ def mensal(request):
 
         context = getContext({
             'capital_inicial': capital_inicial,
-            'taxa_mensal': taxa_mensal,
+            'taxa_mensal': taxa_mensal*100,
             'valores_mensais': valores_mensais,
         })
         return render(request, 'Aportes/mensal.html', context)

@@ -3,17 +3,49 @@
     <head>
         {% include 'base_header.html' %}
         {% load static %}
-        <!-- <link rel="stylesheet" href="{% static 'css/style.css' %}"> -->
     </head>
     <body>
         <header class="container">
-            <h1>Webapps</h1>
+            <nav class="navbar-brand">
+                <span class="navbar-brand h1">{{ pageTitle }}</span>
+            </nav>
             <hr>
         </header>
-        <div class="container">
-            <!--  -->
+
+        <div class="main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Home</h4>
+                                <p class="card-text">The app that shows others apps to current user</p>
+                                <a href="/" class="btn btn-primary">Go to Home</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Aportes</h4>
+                                <p class="card-text">App to make financial forecasts</p>
+                                <a href="/aportes/" class="btn btn-primary">Go to Aportes</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Todo</h4>
+                                <p class="card-text">How about some To Do tasks</p>
+                                <a href="/todo/" class="btn btn-primary">Go to Todo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        {% include 'base_footer.html' %}
-    </body>
+    {% include 'base_footer.html' %}
+</body>
 </html>

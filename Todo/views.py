@@ -12,6 +12,7 @@ def index(request):
     todoList = Todo.objects.all()[:10]
 
     context = getContext({
+        'pageTitle': 'WebApp - Todos',
         'todoList': todoList,
     })
     return render(request, 'Todo/index.html', context)

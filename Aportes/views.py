@@ -11,7 +11,9 @@ from .apps import AportesConfig
 @requires_csrf_token
 def index(request):
 
-    context = getContext()
+    context = getContext({
+        'pageTitle': 'WebApp - Aportes',
+    })
     return render(request, 'Aportes/index.html', context)
 
 

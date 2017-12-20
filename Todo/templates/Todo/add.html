@@ -12,20 +12,15 @@
             <div class="container">
                 <form action="{% url 'add' %}" method="post">
                     {% csrf_token %}
-                    <fieldset>
+                    <div class="form-group">
                         <label for="title">Title</label>
-                        <br>
-                        <input type="text" name="title" id="title" />
-                    </fieldset>
-                    <br>
-                    <fieldset>
-                        <label for="text">Text</label>
-                        <br>
-                        <textarea name="text" id="text"></textarea>
-                    </fieldset>
-                    <br>
-                    <br>
-                    <input type="submit" value="Submit" />
+                        <input type="text" class="form-control" name="title" id="title" placeholder="Todo Title"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea type="text" class="form-control" name="text" id="description" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
         </div>

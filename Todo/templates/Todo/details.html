@@ -10,16 +10,19 @@
 
         <div class="main">
             <div class="container">
-                <h1>{{todoItem.title}}</h1>
-                <p>{{todoItem.text}}</p>
-                <br>
-                <span>Created on {{todoItem.created_at}}</span>
-                <br>
-                <form action="{% url 'delete' %}" method="post">
-                    {% csrf_token %}
-                    <input type="hidden" name="todoItemId" value="{{todoItem.id}}"/>
-                    <input type="submit" value="Delete"/>
-                </form>
+                <div class="jumbotron">
+                    <h1 class="display-4">{{todoItem.title}}</h1>
+                    <p class="lead">{{todoItem.text}}</p>
+                    <hr class="my-4">
+                    <p>Created on {{todoItem.created_at}}</p>
+                    <p class="lead">
+                        <form action="{% url 'delete' %}" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="todoItemId" value="{{todoItem.id}}"/>
+                            <input class="btn btn-outline-danger" type="submit" value="Delete"/>
+                        </form>
+                    </p>
+                </div>
             </div>
         </div>
 

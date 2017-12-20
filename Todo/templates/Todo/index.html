@@ -10,13 +10,16 @@
 
         <div class="main">
             <div class="container">
-                <ul>
+                <div class="list-group">
                     {% for todoItem in todoList %}
-                    <li>
-                        <a href="{% url 'details' todoItem.id %}">{{todoItem.title}}</a><span>: {{todoItem.text}}</span>
-                    </li>
+                        <!-- <div class="list-group-item list-group-item-action"> -->
+                            <a class="list-group-item list-group-item-action" href="{% url 'details' todoItem.id %}">
+                                <span class="h6">{{todoItem.title}}</span>
+                                <span>: {{todoItem.text}}</span>
+                            </a>
+                        <!-- </div> -->
                     {% endfor %}
-                </ul>
+                </div>
             </div>
         </div>
 

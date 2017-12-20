@@ -11,8 +11,7 @@ from .apps import AportesConfig
 @requires_csrf_token
 def index(request):
 
-    context = getContext({
-    })
+    context = getContext()
     return render(request, 'Aportes/index.html', context)
 
 
@@ -75,7 +74,7 @@ def mensal(request):
 # ==============================================================================
 # Utilities
 # ==============================================================================
-def getContext(updatedDict):
+def getContext(updatedDict={}):
     context = dict()
     context['appName'] = AportesConfig.name
     context['pageTitle'] = AportesConfig.name

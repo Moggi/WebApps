@@ -11,7 +11,7 @@ def index(request):
     })
     return render(request, 'Home/index.html', context)
 
-def getContext(updatedDict):
+def getContext(updatedDict={}):
     context = dict()
     context['appName'] = HomeConfig.name
     context['pageTitle'] = HomeConfig.name

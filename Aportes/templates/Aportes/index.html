@@ -6,12 +6,7 @@
         <link rel="stylesheet" href="{% static 'css/aportes_style.css' %}">
     </head>
     <body>
-        <header class="container">
-            <nav class="navbar-brand">
-                <span class="navbar-brand h1">{{ pageTitle }}</span>
-            </nav>
-            <hr>
-        </header>
+        {% include 'base_navbar.html' %}
 
         <div class="main">
 

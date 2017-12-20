@@ -60,5 +60,12 @@ def getContext(updatedDict={}):
     context['appName'] = TodoConfig.name
     context['pageTitle'] = TodoConfig.name
 
+    context['navList'] = [
+        {
+            'url': 'add',
+            'title': 'Add a Todo',
+        },
+    ]
+
     context.update(updatedDict)
     return context

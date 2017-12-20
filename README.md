@@ -2,7 +2,7 @@
 Apps made to learn the [Django's](https://github.com/django/django) and [Heroku's](https://www.heroku.com) way of creating WebApps
 
 ## Apps
-- Todo (basic Todo without JS)
+- Todo (Todo without JS)
 - Aportes (basic financial contribution)
 - Home (presents the apps)
 
@@ -21,7 +21,7 @@ Django:
 - [x] Views and Templates
 - [x] Forms
 - [x] StaticFiles
-- [ ] Authentication
+- [ ] User and Auth
 - [x] Admin
 - [ ] Testing
 - [x] Deployment
@@ -38,13 +38,13 @@ Heroku:
 
 ### From Apps
 Home App
-- [ ] Apps carousel
-- [ ] Template for all apps
+- [x] Apps carousel
+- [x] Template for all apps
 
 Todo App
 - [x] Model
 - [ ] User auth
-- [ ] CRUD
+- [x] CRUD
 
 Aportes App
 - [x] Monthly contribution (Years)

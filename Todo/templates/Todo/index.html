@@ -7,20 +7,33 @@
     </head>
     <body>
         <header class="container">
-            <h1>ToDo</h1>
-            <hr>
-            <a href="{% url 'add' %}">Add a Todo</a>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <span class="navbar-brand h1">{{ pageTitle }}</span>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'add' %}">Add a Todo</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         </header>
-        <div class="container">
-        <ul>
-            {% for todoItem in todoList %}
-            <li>
-                <a href="{% url 'details' todoItem.id %}">{{todoItem.title}}</a><span>: {{todoItem.text}}</span>
-            </li>
-            {% endfor %}
-        </ul>
+
+        <div class="main">
+            <div class="container">
+                <ul>
+                    {% for todoItem in todoList %}
+                    <li>
+                        <a href="{% url 'details' todoItem.id %}">{{todoItem.title}}</a><span>: {{todoItem.text}}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
 
-        {% include 'base_footer.html' %}
-    </body>
+    {% include 'base_footer.html' %}
+</body>
 </html>

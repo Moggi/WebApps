@@ -3,29 +3,40 @@
     <head>
         {% include 'base_header.html' %}
         {% load static %}
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/todo_style.css' %}">
     </head>
     <body>
-        <header>
-            <h1>ToDo</h1>
-            <hr>
+        <header class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <span class="navbar-brand h1">{{ pageTitle }}</span>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'add' %}">Add a Todo</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         </header>
 
-        <div class="container">
-            <a href="{% url 'index' %}">Go Back</a>
-            <br>
-            <h1>{{todoItem.title}}</h1>
-            <p>{{todoItem.text}}</p>
-            <br>
-            <span>Created on {{todoItem.created_at}}</span>
-            <br>
-            <form action="{% url 'delete' %}" method="post">
-                {% csrf_token %}
-                <input type="hidden" name="todoItemId" value="{{todoItem.id}}"/>
-                <input type="submit" value="Delete"/>
-            </form>
+        <div class="main">
+            <div class="container">
+                <h1>{{todoItem.title}}</h1>
+                <p>{{todoItem.text}}</p>
+                <br>
+                <span>Created on {{todoItem.created_at}}</span>
+                <br>
+                <form action="{% url 'delete' %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="todoItemId" value="{{todoItem.id}}"/>
+                    <input type="submit" value="Delete"/>
+                </form>
+            </div>
         </div>
 
-        {% include 'base_footer.html' %}
-    </body>
+    {% include 'base_footer.html' %}
+</body>
 </html>

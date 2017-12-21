@@ -11,6 +11,12 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
+import environ
+import dj_database_url
+
+root = environ.Path(__file__) - 1 # three folder back
+env = environ.Env(DEBUG=(bool, False),) # set default values and casting
+environ.Env.read_env('.env')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,10 +26,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '_&3a^izf#hdv(vb=c*h+ep7z#!euj(a^7qx)vos!3hqf$xnh24'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = ['*']
 
@@ -83,18 +89,8 @@ WSGI_APPLICATION = 'WebApps.wsgi.application'
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'webapps',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': '172.18.0.1',
-        'PORT': '33060'
-    }
+    'default': env.db()
 }
-
-# Update database configuration with $DATABASE_URL.
-import dj_database_url
 
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)

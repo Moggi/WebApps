@@ -9,6 +9,7 @@ gunicorn = "*"
 django-heroku = "*"
 whitenoise = "*"
 psycopg2 = "*"
+django-eviron = "*"
 
 [requires]
 python_version = "3.6"

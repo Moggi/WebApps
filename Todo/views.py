@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 from django.template import Context
 from django.shortcuts import render, redirect
+from django.contrib.auth.models import Permission, User
+from django.contrib.auth.decorators import login_required, permission_required
 
 from .models import Todo
 from .apps import TodoConfig
@@ -25,6 +27,8 @@ def details(request, id):
     })
     return render(request, 'Todo/details.html', context)
 
+@login_required(login_url='login')
+# @permission_required('todo.can_add')
 def add(request):
     context = getContext()
 
@@ -43,6 +47,8 @@ def add(request):
 # ==============================================================================
 # POST Only methods
 # ==============================================================================
+@login_required(login_url='login')
+# @permission_required('todo.can_delete')
 def delete(request):
     if(request.method == 'POST'):
         todoItemId = request.POST['todoItemId']

@@ -16,11 +16,13 @@
                     <hr class="my-4">
                     <p>Created on {{todoItem.created_at}}</p>
                     <p class="lead">
+                        {% if user.is_authenticated %}
                         <form action="{% url 'delete' %}" method="post">
                             {% csrf_token %}
                             <input type="hidden" name="todoItemId" value="{{todoItem.id}}"/>
                             <input class="btn btn-outline-danger" type="submit" value="Delete"/>
                         </form>
+                        {% endif %}
                     </p>
                 </div>
             </div>

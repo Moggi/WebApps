@@ -21,7 +21,7 @@ Django:
 - [x] Views and Templates
 - [x] Forms
 - [x] StaticFiles
-- [ ] User and Auth
+- [x] User and Auth
 - [x] Admin
 - [ ] Testing
 - [x] Deployment
@@ -43,7 +43,7 @@ Home App
 
 Todo App
 - [x] Model
-- [ ] User auth
+- [x] User auth
 - [x] CRUD
 
 Aportes App

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% include 'base_header.html' %}
+        {% load static %}
+    </head>
+    <body>
+        {% include 'base_navbar.html' %}
+
+        <div class="main">
+            <div class="container">
+                <div class="row justify-content-md-center">
+                    <div class="col-lg-10">
+                        {% if user.is_authenticated %}
+                        <div class="jumbotron">
+                            <h1 class="display-4">Congratz</h1>
+                            <p class="lead">You are already logged in</p>
+                        </div>
+                        {% else %}
+                        <h2>Login</h2>
+                        <form class="aportes-form" method="post">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button type="submit" class="btn btn-primary">Login</button>
+                        </form>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% include 'base_footer.html' %}
+</body>
+</html>

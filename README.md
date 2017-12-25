@@ -23,7 +23,6 @@ Django:
 - [x] StaticFiles
 - [x] User and Auth
 - [x] Admin
-- [ ] Testing
 - [x] Deployment
 
 Docker:
@@ -47,5 +46,5 @@ Todo App
 - [x] CRUD
 
 Aportes App
-- [x] Monthly contribution (Years)
-- [ ] Dream contribution
+- [x] Monthly contribution (for the long run, a.k.a Years)
+- [x] Dream contribution (for the short run, a.k.a Months)

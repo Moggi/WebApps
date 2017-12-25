@@ -11,31 +11,101 @@
         <div class="main">
 
             <div class="container">
-                <form class="aportes-form" action="mensal.html" method="post">
-                    {% csrf_token %}
-                    <div class="form-group">
-                        <label for="capital_inicial">Capital inicial a ser investido: </label>
-                        <input class="form-control" type="number" name="capital_inicial" value="0">
+                <div class="row justify-content-md-center">
+                    <div class="col-md-5 jumbotron">
+                        <h1 class="display-4">Aposentadoria</h1>
+                        <p class="lead">Aportes mensais para o longo prazo</p>
+                        <hr class="my-4">
+                        <p>Descubra em quanto tempo conseguirás seu objetivo aplicando mensalmente!</p>
+                        <br>
+                        <form class="aportes-form" action="mensal.html" method="post">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="capital_inicial">Capital inicial a ser investido: </label>
+                                <input class="form-control" type="number" name="capital_inicial" value="0">
+                            </div>
+                            <div class="form-group">
+                                <label for="aportes_mensais">Aportes mensais: </label>
+                                <input class="form-control" type="number" name="aportes_mensais" value="200">
+                            </div>
+                            <div class="form-group">
+                                <label for="taxa_mensal">Rendimento mensal (%): </label>
+                                <input class="form-control" type="number" name="taxa_mensal" step="0.01" value="0.50">
+                            </div>
+                            <div class="form-group">
+                                <label for="taxa_progressiva">Taxa progressiva anual do capital (%): </label>
+                                <input class="form-control" type="number" name="taxa_progressiva" value="10">
+                            </div>
+                            <div class="form-group">
+                                <label for="capital_objetivo">Capital objetivo: </label>
+                                <input class="form-control" type="number" name="capital_objetivo" value="1000000">
+                            </div>
+                            <p>OBS: Considere descontar a Inflação no Rendimendo Mensal</p>
+                            <button type="submit" class="btn btn-primary">Calcular</button>
+                        </form>
                     </div>
-                    <div class="form-group">
-                        <label for="aportes_mensais">Aportes mensais: </label>
-                        <input class="form-control" type="number" name="aportes_mensais" value="100">
+                    <div class="col-sm-1">
                     </div>
-                    <div class="form-group">
-                        <label for="taxa_mensal">Rendimento mensal (%): </label>
-                        <input class="form-control" type="number" name="taxa_mensal" step="0.01" value="0.90">
+                    <div class="col-md-5 jumbotron">
+                        <h1 class="display-4">Projetos</h1>
+                        <p class="lead">Aportes para o curto prazo</p>
+                        <hr class="my-4">
+                        <p>Descubra o rendimento mensal necessário para chegar em seu objetivo!</p>
+                        <br>
+                        <form class="aportes-form" action="projeto.html" method="post">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="capital_inicial">Capital inicial: </label>
+                                <input class="form-control" type="number" name="capital_inicial" value="1000">
+                            </div>
+                            <div class="form-group">
+                                <label for="capital_objetivo">Capital objetivo: </label>
+                                <input class="form-control" type="number" name="capital_objetivo" value="3000">
+                            </div>
+                            <div class="form-group">
+                                <label for="quantia_meses">Quantos meses: (1-72)</label>
+                                <input class="form-control" type="number" name="quantia_meses" value="24" max="72" min="1">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-check-label">
+                                    <input type="hidden" name="considerar_IR" value="0">
+                                    <input class="form-check-input" type="checkbox" name="considerar_IR" value="1">Considerar Imposto de Renda (IR)
+                                </label>
+                            </div>
+                            <p>OBS: Calculo com IR resulta em capital objetivo aproximado</p>
+                            <button type="submit" class="btn btn-primary">Calcular</button>
+                            <br>
+                            <div>
+                                <hr class="my-4">
+                                <p class="lead">Tabela Regressiva do Imposto de Renda</p>
+                                <table class="table table-bordered table-sm">
+                                    <thead>
+                                        <th>Meses</th>
+                                        <th>Porcentagem</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><= 6</td>
+                                            <td>22.5%</td>
+                                        </tr>
+                                        <tr>
+                                            <td><= 12</td>
+                                            <td>20.0%</td>
+                                        </tr>
+                                        <tr>
+                                            <td><= 24</td>
+                                            <td>17.5%</td>
+                                        </tr>
+                                        <tr>
+                                            <td> > 24</td>
+                                            <td>15.0%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </form>
                     </div>
-                    <div class="form-group">
-                        <label for="taxa_progressiva">Taxa progressiva anual do capital (%): </label>
-                        <input class="form-control" type="number" name="taxa_progressiva" value="0">
-                    </div>
-                    <div class="form-group">
-                        <label for="capital_objetivo">Capital objetivo: </label>
-                        <input class="form-control" type="number" name="capital_objetivo" value="1000000">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Calcular</button>
-                </form>
-
+                </div>
             </div>
 
         </div>

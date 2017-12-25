@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% include 'base_header.html' %}
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/aportes_style.css' %}">
+    </head>
+    <body>
+        {% include 'base_navbar.html' %}
+
+        <div class="main">
+
+            <div class="container">
+                <span>Capital inicial: {{ capital_inicial }}</span><br>
+                <span>Taxa mensal: {{ taxa_mensal|stringformat:".3f" }}%</span><br>
+                <span>Capital objetivo: {{ capital_objetivo|stringformat:".2f" }}</span><br>
+                <span>Valores mensais:</span><br>
+                <table class="table table-striped table-hover table-sm">
+                    <thead>
+                        <tr>
+                            <th>Meses</th>
+                            <th>Valor Mensal</th>
+                            <th>Lucro Mensal</th>
+                            <th>Lucro Acumulado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for valor in valores_mensais %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ valor.valor_mensal|stringformat:".2f" }}</td>
+                            <td>{{ valor.lucro_mensal|stringformat:".2f" }}</td>
+                            <td>{{ valor.lucro_acumulado|stringformat:".2f" }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+
+        {% include 'base_footer.html' %}
+    </body>
+</html>

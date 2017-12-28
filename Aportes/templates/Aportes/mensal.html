@@ -13,7 +13,9 @@
             <div class="container">
                 <span>Capital inicial: {{ capital_inicial }}</span><br>
                 <span>Taxa mensal: {{ taxa_mensal|stringformat:".2f" }}%</span><br>
+                <span>Progressão anual dos aportes: {{ taxa_progressiva|stringformat:".2f" }}</span><br>
                 <span>Capital objetivo: {{ capital_objetivo|stringformat:".2f" }}</span><br>
+                <br>
                 <span>Valores anuais:</span><br>
                 <table class="table table-striped table-hover table-sm">
                     <thead>

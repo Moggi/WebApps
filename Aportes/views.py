@@ -29,9 +29,6 @@ def mensal(request):
         taxa_progressiva = float(request.POST['taxa_progressiva'])
         capital_objetivo = float(request.POST['capital_objetivo'])
 
-        # every year the 'aportes' will grow at leat 0.1%, else it will not
-        taxa_progressiva = (taxa_progressiva/100) if taxa_progressiva >= 0.1 else 0.0
-
         # each month the 'aporte' will grow a fixed rate of at leat 0.1%
         taxa_mensal     = (taxa_mensal/100) if taxa_mensal >= 0.1 else 1
 
@@ -63,12 +60,13 @@ def mensal(request):
             if valor_anual >= capital_objetivo:
                 break
 
-            aportes_mensais += aportes_mensais*taxa_progressiva
+            aportes_mensais += taxa_progressiva
 
         context = getContext({
             'capital_inicial': capital_inicial,
             'taxa_mensal': taxa_mensal*100,
             'capital_objetivo': capital_objetivo,
+            'taxa_progressiva': taxa_progressiva,
             'valores_mensais': valores_mensais,
         })
         return render(request, 'Aportes/mensal.html', context)

@@ -25,10 +25,6 @@
                             <th>Capital Investido</th>
                             <th>Valor Anual</th>
                             <th>Lucro Anual</th>
-                            <th>Lucro Anual IR 15%</th>
-                            <th>Lucro Anual IR 17,5%</th>
-                            <th>Lucro Anual IR 20%</th>
-                            <th>Lucro Anual IR 22,5%</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -43,10 +39,6 @@
                             <td>{{ valor.capital_investido|stringformat:".2f" }}</td>
                             <td>{{ valor.valor_anual|stringformat:".2f" }}</td>
                             <td>{{ valor.lucro_anual|stringformat:".2f" }}</td>
-                            <td>{{ valor.lucro_anual_15|stringformat:".2f" }}</td>
-                            <td>{{ valor.lucro_anual_175|stringformat:".2f" }}</td>
-                            <td>{{ valor.lucro_anual_20|stringformat:".2f" }}</td>
-                            <td>{{ valor.lucro_anual_225|stringformat:".2f" }}</td>
                         </tr>
                     {% endfor %}
                     </tbody>

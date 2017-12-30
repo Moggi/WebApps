@@ -51,10 +51,6 @@ def mensal(request):
                 'capital_investido': capital_investido,
                 'valor_anual': valor_anual,
                 'lucro_anual': valor_anual-capital_investido,
-                'lucro_anual_15': (valor_anual-capital_investido)*0.85,
-                'lucro_anual_175': (valor_anual-capital_investido)*0.825,
-                'lucro_anual_20': (valor_anual-capital_investido)*0.80,
-                'lucro_anual_225': (valor_anual-capital_investido)*0.775,
             })
 
             if valor_anual >= capital_objetivo:

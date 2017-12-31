@@ -23,14 +23,14 @@
                             <th>Anos</th>
                             <th>Aportes Mensais</th>
                             <th>Capital Investido</th>
-                            <th>Valor Anual</th>
+                            <th>Valor Anual (Objetivo)</th>
                             <th>Lucro Anual</th>
-                            <th>Lucro Mensal Aproximado</th>
+                            <th>Lucro Mensal Aprox.</th>
                         </tr>
                     </thead>
                     <tbody>
                     {% for valor in valores_mensais %}
-                        {% if valor.valor_anual >= 1000000 %}
+                        {% if valor.valor_anual >= capital_objetivo %}
                         <tr class="table-success">
                         {% else %}
                         <tr>
@@ -38,7 +38,11 @@
                             <td>{{ forloop.counter }}</td>
                             <td>{{ valor.aportes_mensais|stringformat:".2f" }}</td>
                             <td>{{ valor.capital_investido|stringformat:".2f" }}</td>
+                            {% if valor.valor_anual >= 1000000 %}
+                            <td><b>{{ valor.valor_anual|stringformat:".2f" }}</b></td>
+                            {% else %}
                             <td>{{ valor.valor_anual|stringformat:".2f" }}</td>
+                            {% endif %}
                             <td>{{ valor.lucro_anual|stringformat:".2f" }}</td>
                             <td>{{ valor.lucro_mensal|stringformat:".2f" }}</td>
                         </tr>

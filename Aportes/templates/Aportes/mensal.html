@@ -25,7 +25,7 @@
                             <th>Capital Investido</th>
                             <th>Valor Anual (Objetivo)</th>
                             <th>Lucro Anual</th>
-                            <th>Lucro Mensal Aprox.</th>
+                            <th>Lucro sob Cap. Invst.</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -44,7 +44,7 @@
                             <td>{{ valor.valor_anual|stringformat:".2f" }}</td>
                             {% endif %}
                             <td>{{ valor.lucro_anual|stringformat:".2f" }}</td>
-                            <td>{{ valor.lucro_mensal|stringformat:".2f" }}</td>
+                            <td>{{ valor.lucro_investido|stringformat:".2f" }}</td>
                         </tr>
                     {% endfor %}
                     </tbody>

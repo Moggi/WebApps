@@ -44,15 +44,15 @@ def mensal(request):
                 capital_investido += aportes_mensais
                 valor_mensal = (valor_mensal+aportes_mensais)*(1+taxa_mensal)
 
-            valor_anual = valor_mensal
-
             valores_mensais.append({
                 'aportes_mensais': aportes_mensais,
                 'capital_investido': capital_investido,
-                'valor_anual': valor_anual,
-                'lucro_anual': valor_anual-capital_investido,
-                'lucro_mensal': (valor_anual-capital_investido)/12,
+                'valor_anual': valor_mensal,
+                'lucro_anual': valor_mensal-valor_anual,
+                'lucro_investido': (valor_mensal-capital_investido)/12,
             })
+
+            valor_anual = valor_mensal
 
             if valor_anual >= capital_objetivo:
                 break

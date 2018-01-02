@@ -49,7 +49,7 @@ def mensal(request):
                 'capital_investido': capital_investido,
                 'valor_anual': valor_mensal,
                 'lucro_anual': valor_mensal-valor_anual,
-                'lucro_investido': (valor_mensal-capital_investido)/12,
+                'lucro_investido': valor_mensal-capital_investido,
             })
 
             valor_anual = valor_mensal
